@@ -10,17 +10,27 @@ output_path = os.path.join("templates-custom", "mandala.png")
 output_image = Image.new("RGB", size, "white")
 
 draw = ImageDraw.Draw(output_image)
-for radius in range(0, 3000, 50):
+for index, radius in enumerate(range(0, 3000, 50)):
     ellipse_shape = (center[0] - radius, center[1] - radius, center[0] + radius, center[1] + radius)
-    draw.ellipse(ellipse_shape, outline="gray")
+    width = 1
+    if index % 3 == 0:
+        width = 2
+    if index % 9 == 0:
+        width = 3
+    draw.ellipse(ellipse_shape, outline="gray", width=width)
 
-for angle in range(0, 360, 5):
+for index, angle in enumerate(range(0, 360, 5)):
     offset = (int(3000 * math.sin(math.radians(angle))), int(3000 * math.cos(math.radians(angle))))
     x1 = center[0]
     y1 = center[1]
     x2 = center[0] + offset[0]
     y2 = center[1] + offset[1]
-    draw.line((x1, y1, x2, y2), fill="gray")
+    width = 1
+    if index % 3 == 0:
+        width = 2
+    if index % 9 == 0:
+        width = 3
+    draw.line((x1, y1, x2, y2), fill="gray", width=width)
 
 del draw
 
