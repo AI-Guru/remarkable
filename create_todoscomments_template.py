@@ -21,10 +21,10 @@ def draw_todo(x, y):
 def draw_planner(x):
 
     for i in range(11):
-        y = i * 100 + 75
+        y = i * 100 + 125
         draw_todo(x, y)
 
-    y += 125
+    y += 100
 
     rectangle_width = 600
     rectangle_height = 600
