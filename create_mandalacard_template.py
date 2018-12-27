@@ -3,8 +3,8 @@ import os
 import math
 
 remarkable = False
-remarkable = True
-if remarkable = True:
+#remarkable = True
+if remarkable == True:
     size = (1404, 1872)
     px_per_cm = 118 // 1.8
     line_width = 2
@@ -32,12 +32,12 @@ def draw_mandalacard(x1, y1, x2, y2):
     c_x = (x1 + x2) // 2
     c_y= (y1 + y2) // 2
 
-    for radius_in_cm in [1.0, 2.5, 4.0, 5.0]:
+    for radius_in_cm in [2.5, 4.0, 5.0]:
         radius_in_px = cm_to_px(radius_in_cm)
         ellipse_shape = (c_x - radius_in_px, c_y - radius_in_px, c_x + radius_in_px, c_y + radius_in_px)
         draw.ellipse(ellipse_shape, outline="gray", width=line_width)
 
-    draw_rays(c_x, c_y, 1.0, 5.0, 32)
+    draw_rays(c_x, c_y, 2.5, 5.0, 32)
 
 
 def draw_rays(x, y, radius_1, radius_2, rays):
