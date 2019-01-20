@@ -11,36 +11,34 @@ output_image = Image.new("RGB", size, "white")
 
 draw = ImageDraw.Draw(output_image)
 
-circle_descriptions = []
 pentagon_descriptions = []
-for index, radius in enumerate(range(0, 3000, 50)):
-    ellipse_shape = (center[0] - radius, center[1] - radius, center[0] + radius, center[1] + radius)
+radius = 75
+while radius < size[1] // 1.75:
     width = 1
-    if index % 5 == 0:
-        pentagon_descriptions.append((radius, width))
-        width = 2
-    circle_descriptions.append((radius, width))
+    pentagon_descriptions.append((radius, width))
+    radius = radius / math.cos(math.radians(180.0 /  5))
 
-for (radius, width) in circle_descriptions:
+
+for (radius, width) in pentagon_descriptions:
+
+    # Render the circle.
     ellipse_shape = (center[0] - radius, center[1] - radius, center[0] + radius, center[1] + radius)
     draw.ellipse(ellipse_shape, outline="gray", width=width)
 
-for (radius, width) in pentagon_descriptions:
+    # Render the polygon.
     xy = []
-    print(width)
     for index in range(5):
         angle = index * 360.0 / 5.0
         offset = (int(radius * math.sin(math.radians(angle))), int(radius * math.cos(math.radians(angle))))
         x = center[0] + offset[0]
         y = center[1] + offset[1]
         xy.append((x, y))
-    print(xy)
     draw.polygon(xy, outline="gray")
 
 
 # L
 line_descriptions = []
-segments = 5
+segments = 10
 segments_offset = 360.0 / (5.0 * segments)
 for index in range(5):
     angle = index * 360.0 / 5.0
