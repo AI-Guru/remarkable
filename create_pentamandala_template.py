@@ -22,7 +22,7 @@ while radius < size[1] // 1.75:
 for (radius, width) in pentagon_descriptions:
 
     # Render the circle.
-    ellipse_shape = (center[0] - radius, center[1] - radius, center[0] + radius, center[1] + radius)
+    ellipse_shape = (center[0] - radius + 1, center[1] - radius + 1, center[0] + radius - 1,  center[1] + radius - 1)
     draw.ellipse(ellipse_shape, outline="gray", width=width)
 
     # Render the polygon.
