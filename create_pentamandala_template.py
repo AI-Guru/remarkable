@@ -42,7 +42,7 @@ segments = 10
 segments_offset = 360.0 / (5.0 * segments)
 for index in range(5):
     angle = index * 360.0 / 5.0
-    width = 3
+    width = 2
     line_descriptions.append((angle, width))
 
     width = 1
