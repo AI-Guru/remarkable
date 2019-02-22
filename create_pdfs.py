@@ -18,5 +18,4 @@ for png_path in png_paths:
     shell_command += " " + pdf_path
     print(shell_command)
     os.system(shell_command)
-
     print("")
